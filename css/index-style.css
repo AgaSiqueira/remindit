@@ -28,10 +28,15 @@ header{
 	z-index: 99;
 }
 
+.teste {
+	display: flex;
+}
+
 .logo {
 	font-size: 2em;
 	color: #fff;
 	user-select:none;
+	padding-right: 10px;
 }
 
 .navigation a {
@@ -60,4 +65,135 @@ header{
 .navigation a:hover::after{
 	transform-origin: left;
 	transform: scaleX(1);
+}
+
+.main-login {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.left-login{
+	width: 50vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.left-login h1{
+	margin-top: 5%;
+	box-sizing: border-box;
+	font-size: 2.5vw;
+	color: #fff;
+}
+
+.left-login-image{
+	width: 25vw;
+}
+
+.rigth-login{
+	width: 50vw; /*pega o tamanho da tela*/
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-login{
+	width: 60%; /*pega o tamanho da div*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 1% 0%;
+
+}
+
+.textfield{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid #fff;
+	box-sizing: border-box;
+	margin: 3%;
+	padding: 5%;
+}
+
+.textfield ion-icon {
+	color: #fff;
+	font-size: 3em;
+	margin-right: 10%;
+}
+
+.textfield p{
+	color: #fff;
+	font-size: 1.5em;
+}
+
+@media only screen and (max-width:950px){
+		body{
+			flex-direction: column;
+		}
+
+		header{
+			padding: 20px 20px;
+		}
+
+		.logo{
+			font-size: 1em;
+			padding-right: 5px;
+		}
+
+		.main-login{
+			width: 100vw;
+			height: 80vh;
+			margin-top: 10%;
+			flex-direction: column;
+		}
+
+		.left-login-image{
+			width: 35vw;
+		}
+
+		.card-login{
+			width: 80%;
+		}
+		.textfield ion-icon {
+			font-size: 2em;
+			margin-right: 10%;
+		}
+
+		.textfield p{
+			color: #fff;
+			font-size: 1em;
+		}
+}
+
+
+@media only screen and (max-width:600px){
+	header{
+			padding: 15px 5px;
+		}
+		.navigation a {
+			font-size: 1em;
+			margin-left: 5px;
+		}
+
+		.left-login h1{
+		font-size: 5vw;
+		color: #fff;
+	}
+
+	.main-login{
+			flex-direction: column;
+			margin-top: 20%;
+		}
+	.left-login-image{
+			width: 55vw;
+		}
 }
