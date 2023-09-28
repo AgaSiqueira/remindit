@@ -14,6 +14,7 @@ body{
 	background-image: linear-gradient(170deg, #0F1B2C, #201b2c);
 	background-size: cover;
 	background-position: center;
+	overflow: hidden;
 }
 
 header{
@@ -28,7 +29,7 @@ header{
 	z-index: 99;
 }
 
-.teste {
+.div-logo {
 	display: flex;
 }
 
@@ -67,15 +68,16 @@ header{
 	transform: scaleX(1);
 }
 
-.main-login {
+.main-content {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 1.5%;
 }
 
-.left-login{
+.left-content{
 	width: 50vw;
 	height: 100vh;
 	display: flex;
@@ -84,18 +86,18 @@ header{
 	flex-direction: column;
 }
 
-.left-login h1{
+.left-content h1{
 	margin-top: 5%;
 	box-sizing: border-box;
 	font-size: 2.5vw;
 	color: #fff;
 }
 
-.left-login-image{
+.left-content-image{
 	width: 25vw;
 }
 
-.rigth-login{
+.rigth-content{
 	width: 50vw; /*pega o tamanho da tela*/
 	height: 100vh;
 	display: flex;
@@ -103,7 +105,7 @@ header{
 	align-items: center;
 }
 
-.card-login{
+.card-left{
 	width: 60%; /*pega o tamanho da div*/
 	display: flex;
 	justify-content: center;
@@ -149,18 +151,18 @@ header{
 			padding-right: 5px;
 		}
 
-		.main-login{
+		.main-content{
 			width: 100vw;
 			height: 80vh;
 			margin-top: 10%;
 			flex-direction: column;
 		}
 
-		.left-login-image{
+		.left-content-image{
 			width: 35vw;
 		}
 
-		.card-login{
+		.card-left{
 			width: 80%;
 		}
 		.textfield ion-icon {
@@ -184,16 +186,16 @@ header{
 			margin-left: 5px;
 		}
 
-		.left-login h1{
+		.left-content h1{
 		font-size: 5vw;
 		color: #fff;
 	}
 
-	.main-login{
+	.main-content{
 			flex-direction: column;
 			margin-top: 20%;
 		}
-	.left-login-image{
+	.left-content-image{
 			width: 55vw;
 		}
 }
