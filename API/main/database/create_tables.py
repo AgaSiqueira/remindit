@@ -76,5 +76,7 @@ def main():
     else:
         print("Error! cannot create the database connection.")
 
+    return conn
+
 if __name__ == '__main__':
     main()
