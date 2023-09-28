@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body{
+	margin: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+body *{
+	box-sizing: border-box;
+}
+
+.main-content{
+	width: 100vw;
+	height: 100vh;
+	background: #201b2c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.left-side{
+	width: 50vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.left-side h1{
+	font-size: 2.5vw;
+	color: #7DBDD4;
+}
+
+.left-img{
+	width: 35vw;
+}
+
+.rigth-side{
+	width: 50vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card-form{
+	width: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 30px 35px;
+	background: #2f2841;
+	border-radius: 20px;
+	box-shadow: 0px 10px 40px #00000056; 
+}
+
+.card-form h1{
+	color: #7FC2F5;
+	font-size: 800;
+	margin: 0;
+}
+.textfield{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	margin: 10px 0px;
+}
+
+.textfield input{
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	padding: 15px;
+	background:#514869;
+	color: #D9EDF5;
+	font-size: 12pt;
+	box-shadow: 0px 10px 40px #00000056;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.textfield label {
+	color: #ADE6ED;
+	margin-bottom: 10px;
+}
+
+.textfield input::placeholder{
+	color: #8AB7BD;
+}
+
+.btn-login{
+	width: 100%;
+	padding: 16px 0px;
+	margin: 25px;
+	border: none;
+	border-radius: 8px;
+	outline: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 3px;
+	color: #2b134b;
+	background: #73B0DE;
+	cursor: pointer;
+	box-shadow: 0px 10px 40px -12px #4C6591;
+}
+
+.change-form{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.change-form p{
+	color: #D9EDF5;
+	margin-right: 3px;
+}
+
+.change-form a{
+	color: #ADE6ED;
+	text-decoration: none
+}
+
+.change-form a:hover { 
+    font-weight: 800;
+    color: #7FC2F5;
+}
+@media only screen and (max-width:950px){
+	.card-form{
+		width: 80%;
+		height: 95%;
+	}
+}
+
+@media only screen and (max-width:600px){
+	.main-content{
+		flex-direction: column;
+	}
+
+	.left-side{
+		display: none;
+		width: 100%;
+		height: auto;
+	}
+	.rigth-side{
+		width: 100%;
+		height: auto;
+	}
+
+	.card-form{
+		width: 80%;
+		height: 90%;
+	}
+}
+
+
