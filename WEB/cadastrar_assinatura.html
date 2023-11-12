@@ -35,24 +35,24 @@
                             <div class="fields">
                                 <div class="input-field">
                                     <label>Título</label>
-                                    <input type="text" placeholder="Insira titulo Assinatura" required>
+                                    <input type="text" id="nome" name="nome" placeholder="Insira titulo Assinatura" required>
                                 </div>
                                 <div class="input-field">
                                     <label>Descrição</label>
-                                    <input type="text" placeholder="Insira descrição" required>
+                                    <input type="text" id="descricao" name="descricao" placeholder="Insira descrição" required>
                                 </div>
                                 <div class="input-field">
                                     <label>Renovação</label>
-                                    <input type="date" placeholder="Insira data renovação" required>
+                                    <input type="date" id="data" name="data" placeholder="Insira data renovação" required>
                                 </div>
                                 
                                 <div class="input-field">
                                     <label>Preço (R$)</label>
-                                    <input type="number" step="0.01" name="quantity" min="0.01" placeholder="Insira o valor" required>
+                                    <input type="number" id="valor" step="0.01" name="valor" min="0.01" placeholder="Insira o valor" required>
                                 </div>
                                 <div class="input-field">
                                     <label>Renovação</label>
-                                    <input type="text" placeholder="ciclo de renovação" list="ciclo">
+                                    <input type="text" id="ciclo_renovacao" name="ciclo_renovacao" placeholder="ciclo de renovação" list="ciclo">
                                       <datalist id="ciclo">
                                         <option value="">ciclo</option>
                                         <option value="mensal"></option>
@@ -70,11 +70,11 @@
                             <div class="fields">
                                 <div class="input-field">
                                     <label>Título</label>
-                                    <input type="text" placeholder="Insira titulo Lembrete" required>
+                                    <input type="text" id="nome_lembrete" name="nome_lembrete" placeholder="Insira titulo Lembrete" required>
                                 </div>
                                 <div class="input-field">
                                     <label>Dias de Antecedência</label>
-                                    <input type="number" placeholder="Insira dias para o aviso" required>
+                                    <input type="number" id="data_aviso" name="data_aviso" placeholder="Insira dias para o aviso" required>
                                 </div>
                                 
                     </div>
