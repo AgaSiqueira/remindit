@@ -33,6 +33,10 @@
 	margin-top: 30px;
 
 }
+ .container form .lembrete_info{
+	margin-top: 30px;
+
+}
 
 .container form .title{
 	display: block;
@@ -75,6 +79,17 @@ form .fields .input-field{
 	margin: 8px 0;
 }
 
+#ajuste label{
+	color: #f2f2f2;
+}
+#ajuste input{
+	background-color: #f2f2f2;
+	color: #f2f2f2;
+	border: none;
+	box-shadow: none;
+	user-select:none;
+	cursor: default;
+}
 .input-field input:focus,
 .input-field input:valid {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
@@ -88,4 +103,23 @@ form .fields .input-field{
 .input-field input[type="date"]:valid{
 	color: #333;
 
+}
+
+.container form .button{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: 16px 0px;
+	margin-top: 30px;
+	border: none;
+	border-radius: 8px;
+	outline: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 3px;
+	color: #2b134b;
+	background: #73B0DE;
+	cursor: pointer;
+	box-shadow: 0px 10px 40px -12px #4C6591;
 }
