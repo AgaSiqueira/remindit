@@ -3,7 +3,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: red;
+	background-color: #1E1929;
 }
 
 .container{
@@ -12,21 +12,22 @@
 	width: 100%;
 	border-radius: 6px;
 	padding: 30px;
-	margin: 95px 15px 15px 15px;/*ajustar*/
-	background-color: white;
+	margin: 40px 15px 15px 15px;/*ajustar*/
+	background-color: #E8E8E8;
 	box-shadow: 0 5px 10px;
 }
 
 .container header{
+	margin-top: 16px;
 	font-size: 20px;
 	font-weight: 600;
-	color: black;
+	color: #74AFC9;
 }
 .container form{
 	/*position: relative;*/
 	min-height: 490px;
 	margin-top: 16px;
-	background-color: #f2f2f2;
+	background-color: #E8E8E8;
 }
 
 .container form .assinatura_info{
@@ -44,7 +45,7 @@
 	font-size: 16px;
 	font-weight: 500;
 	margin-top: 6px 0;
-	color: #333;
+	color: #201b2c;
 }
 
 
@@ -73,18 +74,18 @@ form .fields .input-field{
 	font-weight: 400;
 	color: #333;
 	border-radius: 5px;
-	border: 1px solid #aaa;
+	border: 1px solid #689CB3;
 	padding: 0 15px;
 	height: 42px;
 	margin: 8px 0;
 }
 
 #ajuste label{
-	color: #f2f2f2;
+	color: #E8E8E8;
 }
 #ajuste input{
-	background-color: #f2f2f2;
-	color: #f2f2f2;
+	background-color: #E8E8E8;
+	color: #E8E8E8;
 	border: none;
 	box-shadow: none;
 	user-select:none;
@@ -111,7 +112,7 @@ form .fields .input-field{
 	justify-content: center;
 	width: 100%;
 	padding: 16px 0px;
-	margin-top: 30px;
+	margin-top: 50px;
 	border: none;
 	border-radius: 8px;
 	outline: none;
@@ -122,4 +123,13 @@ form .fields .input-field{
 	background: #73B0DE;
 	cursor: pointer;
 	box-shadow: 0px 10px 40px -12px #4C6591;
+}
+
+@media (max-width: 940px){
+	.container{
+	max-width: 900px;
+	width: 100%;
+	padding: 15px;
+	margin: 95px 15px 15px 15px;/*ajustar*/
+}
 }
