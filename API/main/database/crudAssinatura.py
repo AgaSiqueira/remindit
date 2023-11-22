@@ -10,7 +10,16 @@ def get_assinatura(conn, assinatura):
                 WHERE cd_assinatura = ?
         '''
     cur = conn.cursor()
-    cur.execute(sql, assinatura)
+    cur.execute(sql, (assinatura,))
+    conn.commit()
+    return cur.fetchall()
+
+def get_assinaturas_por_usuario(conn, cd_usuario):
+    sql = ''' SELECT * FROM assinatura 
+                WHERE cd_usuario = ?
+        '''
+    cur = conn.cursor()
+    cur.execute(sql, (cd_usuario,))
     conn.commit()
     return cur.fetchall()
 

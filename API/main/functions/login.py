@@ -2,6 +2,7 @@ import datetime
 import hashlib
 import os
 import jwt
+from database.crudUsuario import get_usuario
 
 def get_token(conn, usuario):
     try:
@@ -14,7 +15,6 @@ def get_token(conn, usuario):
         resul = cur.fetchone()
         if resul != None:
             token = encode_auth_token(resul[0])
-            print(token)
             response = {
                         'status': 200,
                         'message': 'Registrado com sucesso.',
@@ -34,8 +34,7 @@ def encode_auth_token(user_id):
         }
         token = jwt.encode(
             payload,
-            # os.getenv('SECRET_KEY')
-            "123",
+            os.getenv('SECRET_KEY'),
             algorithm="HS256"
         )
         return token
@@ -44,10 +43,35 @@ def encode_auth_token(user_id):
 
 def decode_auth_token(auth_token):
     try:
-        # payload = jwt.decode(auth_token, os.getenv('SECRET_KEY'))
-        payload = jwt.decode(auth_token, "123", algorithms=["HS256"])
+        payload = jwt.decode(auth_token, os.getenv('SECRET_KEY'), algorithms=["HS256"])
         return payload["username"]
     except jwt.ExpiredSignatureError:
-        return 'Token expirado. Log in novamente.'
+        return "Token expirado. Log in novamente."
     except jwt.InvalidTokenError:
-        return 'Token invalido. Log in novamente.'
+        return "Token invalido. Log in novamente."
+
+def analizarToken(conn, auth_header):
+    if auth_header:
+            auth_token = auth_header.split(" ")[1]
+    else:
+        auth_token = ''
+    if auth_token:
+        resp = decode_auth_token(auth_token)
+        if isinstance(resp, int):
+            responseObject = {
+            'status': 200,
+            'message': 'Sucesso na autenticação',
+            'userId': resp
+            }
+            return responseObject
+        responseObject = {
+            'status': 401,
+            'message': 'Falha na autenticação'
+        }
+        return responseObject
+    else:
+        responseObject = {
+            'status': 401,
+            'message': 'Falha na autenticação'
+        }
+        return responseObject

@@ -14,6 +14,19 @@ def get_tipo_ciclo(conn, tipo_ciclo):
     conn.commit()
     return cur.fetchall()
 
+def popular_tipo_ciclo(conn):
+    sql = '''INSERT INTO tipo_ciclo (descricao) VALUES 
+        ("Diária"),
+        ("Semanal"),
+        ("Mensal"),
+        ("Trimestral"),
+        ("Semestral"),
+        ("Anual");
+    '''
+    cur = conn.cursor()
+    cur.execute(sql)
+    conn.commit()
+
 def create_tipo_ciclo(conn, tipo_ciclo):
     sql = ''' INSERT INTO tipo_ciclo(descricao)
                 VALUES(?) '''

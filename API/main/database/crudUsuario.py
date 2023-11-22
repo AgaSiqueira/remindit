@@ -1,7 +1,6 @@
 import hashlib
 
 def get_usuarios(conn):
-    
     sql = ''' SELECT * FROM usuario '''
     cur = conn.cursor()
     cur.execute(sql)
@@ -15,7 +14,16 @@ def get_usuario(conn, usuario):
     cur = conn.cursor()
     cur.execute(sql, (usuario,))
     conn.commit()
-    return cur.fetchall()
+    return cur.fetchone()
+
+def get_usuario_por_nome(conn, usuario):
+    sql = ''' SELECT * FROM usuario 
+                WHERE nome = ?
+        '''
+    cur = conn.cursor()
+    cur.execute(sql, (usuario,))
+    conn.commit()
+    return cur.fetchone()
 
 def create_usuario(conn, usuario):
     sql = ''' INSERT INTO usuario(nome, senha, email)

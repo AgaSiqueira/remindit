@@ -1,4 +1,5 @@
 import os
+from database.crudTipoCiclo import get_tipos_ciclo
 
 from database.db_functions import create_connection, create_table
 
@@ -64,6 +65,16 @@ def main():
         );
     """
 
+    sql_populate_tipo_ciclo = """
+        INSERT INTO tipo_ciclo (descricao) VALUES 
+        ('Diária'),
+        ('Semanal'),
+        ('Mensal'),
+        ('Trimestral'),
+        ('Semestral'),
+        ('Anual');
+    """
+
     if conn is not None:
         # Criar tabelas
         create_table(conn, sql_create_usuario_table)
@@ -72,6 +83,8 @@ def main():
         create_table(conn, sql_create_notificacao_renovacao_table)
         create_table(conn, sql_create_assinatura_table)
         create_table(conn, sql_create_renovacao_table)
+        if not get_tipos_ciclo(conn):
+            create_table(conn, sql_populate_tipo_ciclo)
 
     else:
         print("Error! cannot create the database connection.")
