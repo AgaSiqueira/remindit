@@ -4,27 +4,34 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-UA-Compatible" contente="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer src="api.js"></script>
+        <script defer src="login.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="css/login.css">
     </head>
     <body>
-        <div class="main-content">
+        <div class="main-content" x-data="{data: true}">
             <div class="left-side">
                 <h1>Faça Login<br>Seja Bem-Vindo</h1>
                 <img src="image/login_ilustracao.svg" class="left-img">
             </div>
-            <form class="rigth-side">
-                <div class="card-form">
+            <form class="rigth-side" id="login-form">
+                <div class="card-form" id="div-login">
                     <h1>Login</h1>
+                    <div class="change-form" id="error" x-show="$store.erroVisivel.on">
+                        <p id="login-error-msg">Nome <span id="error-msg-second-line">e/ou senha incorretos</span></p>
+                    </div>
                     <div class="textfield">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="e-mail" required>
+                        <label for="nome">Usuário</label>
+                        <input type="nome" id="nome" name="nome" placeholder="Usuário" required>
                     </div>
                     <div class="textfield">
                         <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="senha" placeholder="senha" required>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
                     </div>
-                    <button type="submit" class="btn-login">Login</button>
+                    <input type="submit" class="btn-login" id="login-form-submit" value="Login">
                     <div class="change-form">
                         <p>Não possui cadastro? </p>
                         <a href="cadastro.html">Cadastrar</a>

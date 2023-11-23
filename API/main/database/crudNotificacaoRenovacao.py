@@ -6,9 +6,9 @@ def get_notificacoes_renovacao(conn):
     return cur.fetchall()
 
 def get_notificacoes_renovacao_por_usuario(conn, cd_usuario):
-    sql = ''' SELECT n.nome, n.conteudo, n.visualizado 
-                FROM notificacao_renovacao n NATURAL JOIN renovacao r NATURAL JOIN usuario u
-                WHERE u.cd_usuario = ?'''
+    sql = ''' SELECT n.cd_notificacao_renovacao, n.nome, n.conteudo, n.visualizado
+                FROM notificacao_renovacao n NATURAL JOIN renovacao r JOIN assinatura a
+                WHERE a.cd_usuario = ?'''
     cur = conn.cursor()
     cur.execute(sql, (cd_usuario,))
     conn.commit()

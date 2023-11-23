@@ -22,7 +22,10 @@ def get_token(conn, usuario):
                     }
             return (response)
         else:
-            return ("Usuário ou senha incorretos", 403)
+            return ({
+                        'status': 401,
+                        'message': 'Usuario ou senha incorreto.'
+                    })
     except Exception as e:
         return e
         
@@ -30,7 +33,7 @@ def encode_auth_token(user_id):
     try:
         payload = {
             'username': user_id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0, minutes=30)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(days=0, minutes=60)
         }
         token = jwt.encode(
             payload,

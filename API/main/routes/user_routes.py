@@ -24,6 +24,15 @@ def receber_usuarios():
     else:
         return resp, 403
 
+@app.get("/usuario")
+def receber_usuario():
+    auth_header = request.headers.get('Authorization')
+    resp = analizarToken(conn, auth_header)
+    if(resp['status'] == 200):
+        return jsonify(get_usuario(conn, resp["userId"]))
+    else:
+        return resp, 403
+
 @app.post("/usuario")
 def adicionar_usuario():
     if request.is_json:
@@ -73,5 +82,5 @@ def realizar_login():
         if result['status'] == 200: 
             return result
         else:
-            return f'Usuário ou senha incorretos', result[1]
+            return f'Usuário ou senha incorretos', result['status']
     return {"error": "A requisição deve ser JSON"}, 415

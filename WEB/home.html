@@ -5,119 +5,48 @@
         <meta http-equiv="x-UA-Compatible" contente="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
+        <script defer src="api.js"></script>
+        <script defer src="home.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link rel="stylesheet" type="text/css" href="css/navbar_user.css">
         <link rel="stylesheet" type="text/css" href="css/home.css">
     </head>
     <body>
-        <nav>
-            <div class="logo"> Olá, [nome usuario]</div>
-            <input type="checkbox" id="click">
+        <div x-data="{data: true}">
+
+            <nav>
+                <div class="logo"> Olá, <span id="nomeUsuario"></span></div>
+                <input type="checkbox" id="click">
             <label for="click" class="menu-btn">
                 <ion-icon name="menu"></ion-icon>
             </label>
             <ul>
-                <li> <a href="historico.html">Histórico</a></li>
-                <li> <a href="usuario.html">Usuário</a></li>
+                <li> <a href="parcelas.html">Parcelas</a></li>
                 <li> <a href="index.html">Logout</a></li>
             </ul>
-        </nav>
-
-        <div class="pesquisa">
-            <input type="text" id="campoPesquisa" oninput="pesquisarProduto()">
-        </div>
+        </nav>        
         
-        
-        <div class="body"> 
-
+        <div class="body" x-data="$store.assinaturas.get()"> 
+            
             <div id="container" class="container">
-
+                
                 <div class= "assinatura" id="nova_assinatura">
                     <a href="cadastrar_assinatura.html">
                         <img src="image/teste.png">
-                    </a>                
+                    </a>
                 </div>
-
+                
             </div>
         </div>
-         
-    <script>
-                // Array de objetos de produtos
-                const produtos = [
-                {
-                    id: "assinatura1",
-                    titulo: "Assinatura 1",
-                    descricao: "Descrição da Assinatura 1",
-                    renovacao: "01/01/2023",
-                    preco: 19.99,
-                    ciclo: "mensal"
-                },
-                {
-                    id: "assinatura2",
-                    titulo: "Assinatura 2",
-                    descricao: "Descrição da Assinatura 2",
-                    renovacao: "15/02/2023",
-                    preco: 29.99,
-                    ciclo: "mensal"
-                },
-                {
-                    id: "assinatura3",
-                    titulo: "Assinatura 3",
-                    descricao: "Descrição da Assinatura 3",
-                    renovacao: "30/03/2023",
-                    preco: 24.99,
-                    ciclo: "anual"
-                }
-                // Adicione mais objetos conforme necessário
-            ];
-
-            // Função para criar cards de produtos
-            function criarCards() {
-                const teste = document.getElementById('container');
-                const campoPesquisa = document.getElementById('campoPesquisa').value.toLowerCase();
-
-                 document.querySelectorAll('.card').forEach(card => card.remove());
-
-                produtos.forEach((produto, index) => {
-                    // Crie um novo card usando o design existente
-                    const card = document.createElement('div');
-                    card.classList.add('card');
-                    card.innerHTML = `
-                        <h1>${produto.titulo}</h1>
-                        <p>${produto.descricao}</p>
-                        <p>${produto.renovacao}</p>
-                        <p>R$ ${produto.preco.toFixed(2)}</p>
-                        <p>${produto.ciclo}</p>
-                        <button class="btn-edit" onclick="deletarProduto('${produto.id}')">Editar</button>
-                        <button class="btn-delete" onclick="deletarProduto('${produto.id}')">Deletar</button>
-                    `;
-
-                    teste.appendChild(card);
-                });
-            }
-
-            // Chama a função para criar os cards quando a página carrega
-            window.onload = criarCards;
-
-            function deletarProduto(id) {
-                console.log('Deletando produto com ID:', id);
-
-                const index = produtos.findIndex(produto => produto.id === id);
-                if (index !== -1) {
-                    produtos.splice(index, 1); // Remove o produto do array
-                    console.log('Produto removido:', produtos);
-                    atualizarCards(); // Atualiza os cards na página
-                }
-            }
-
-            // Função para atualizar os cards após deletar um produto
-            function atualizarCards() {
-                criarCards(); // Recria os cards com o array atualizado
-            }
-    </script>
 
     <!-- script -->
+
+
+
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <!-- script -->
+        <!-- script -->
+    </div>
     </body>
 </html>

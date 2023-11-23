@@ -4,31 +4,38 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-UA-Compatible" contente="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
+        <script defer src="api.js"></script>
+        <script defer src="cadastro.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Cadastro</title>
         <link rel="stylesheet" type="text/css" href="css/cadastro.css">
     </head>
     <body>
-        <div class="main-content">
+        <div class="main-content" x-data="{data: true}">
             <div class="left-side">
                 <h1>Faça cadastro<br>E gerencie suas assinaturas</h1>
                 <img src="image/cadastro_ilustracao.svg" class="left-img">
             </div>
             <div class="rigth-side">
-                <form action="#" class="card-form">
+                <form action="#" id="cadastro-form" class="card-form">
                     <h1>Cadastro</h1>
+                    <div class="change-form" id="error" x-show="$store.erroVisivel.on">
+                        <p id="cadastro-error-msg">Usuário com esse nome já existe</span></p>
+                    </div>
                     <div class="textfield">
                         <label for="usuario">Nome de Usuário</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="usuario" required>
+                        <input type="text" id="usuario" name="usuario" placeholder="Nome" required>
                     </div>
                     <div class="textfield">
                         <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="e-mail" required>
+                        <input type="email" id="email" name="email" placeholder="E-mail" required>
                     </div>
                     <div class="textfield">
                         <label for="senha">Senha</label>
-                        <input type="password" id="senha" name="senha" placeholder="senha" required>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
                     </div>
-                    <button type="submit" class="btn-login">cadastrar</button>
+                    <button type="submit" id="cadastro-form-submit" class="btn-login">cadastrar</button>
                     <div class="change-form">
                         <p>Já possui cadastro? </p>
                         <a href="login.html">Login</a>

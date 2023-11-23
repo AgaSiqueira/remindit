@@ -4,21 +4,24 @@
         <meta charset="UTF-8">
         <meta http-equiv="x-UA-Compatible" contente="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script defer src="api.js"></script>
+        <script defer src="cadastrar_assinatura.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <title>Assinatura Nova</title>
         <link rel="stylesheet" type="text/css" href="css/navbar_user.css">
         <link rel="stylesheet" type="text/css" href="css/assinatura.css">
     </head>
     <body>
         <nav>
-            <div class="logo"> Olá, [nome usuario]</div>
+            <div class="logo"> Olá, <span id="nomeUsuario"></span></div>
             <input type="checkbox" id="click">
             <label for="click" class="menu-btn">
                 <ion-icon name="menu"></ion-icon>
             </label>
             <ul>
                 <li> <a href="home.html">Assinaturas</a></li>
-                <li> <a href="historico.html">Histórico</a></li>
-                <li> <a href="usuario.html">Usuário</a></li>
+                <li> <a href="parcelas.html">Parcelas</a></li>
                 <li> <a href="index.html">Logout</a></li>
             </ul>
         </nav>
@@ -26,7 +29,7 @@
             <div class="container">
                 <header>Nova Assinatura</header>
                 
-                <form action="#">
+                <form action="#" id="nova-form">
                     <div class="form first">
 
                         <div class="assinatura_info">
@@ -55,8 +58,11 @@
                                     <input type="text" id="ciclo_renovacao" name="ciclo_renovacao" placeholder="ciclo de renovação" list="ciclo">
                                       <datalist id="ciclo">
                                         <option value="">ciclo</option>
+                                        <option value="Diária"></option>
+                                        <option value="Semanal"></option>
                                         <option value="Mensal"></option>
                                         <option value="Trimestral"></option>
+                                        <option value="Semestral"></option>
                                         <option value="Anual"></option>
                                       </datalist>
                                 </div>
@@ -70,28 +76,9 @@
                                 
                             </div>
                         </div>
-                        
-                        <div class="lembrete_info">
-                            <span class="title">Lembrete</span>
-
-                            <div class="fields">
-                                <div class="input-field">
-                                    <label>Título</label>
-                                    <input type="text" id="nome_lembrete" name="nome_lembrete" placeholder="Insira titulo Lembrete" required>
-                                </div>
-                                <div class="input-field">
-                                    <label>Dias de Antecedência</label>
-                                    <input type="number"  min="0" id="data_aviso" name="data_aviso" placeholder="Insira dias para o aviso" required>
-                                </div>
-                                <!--ajuste-->
-                                    <div class="input-field" id="ajuste">
-                                        <label>Título</label>
-                                        <input type="text" >
-                                    </div>
-                                <!--ajuste-->
                                 
                     </div>
-                    <button type="submit" class="button">cadastrar</button>
+                    <button type="submit" id="nova-form-submit" class="button">Cadastrar</button>
 
                 </form>
             </div>

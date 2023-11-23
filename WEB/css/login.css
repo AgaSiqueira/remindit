@@ -126,6 +126,10 @@ body *{
 	text-decoration: none
 }
 
+.change-form p#login-error-msg{
+	color: rgb(255, 27, 27);
+}
+
 .change-form a:hover { 
     font-weight: 800;
     color: #7FC2F5;

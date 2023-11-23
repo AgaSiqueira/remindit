@@ -5,6 +5,22 @@ def get_renovacoes(conn):
     conn.commit()
     return cur.fetchall()
 
+def get_renovacoes_por_usuario(conn, cd_usuario):
+    sql = ''' SELECT r.cd_renovacao, r.data, r.valor, r.ativo, r.cd_assinatura, r.cd_notificacao_renovacao, a.nome FROM renovacao r NATURAL JOIN assinatura a
+            WHERE a.cd_usuario = ?'''
+    cur = conn.cursor()
+    cur.execute(sql, (cd_usuario,))
+    conn.commit()
+    return cur.fetchall()
+
+def get_renovacoes_por_assinatura(conn, cd_assinatura):
+    sql = ''' SELECT * FROM renovacao
+            WHERE cd_assinatura = ?'''
+    cur = conn.cursor()
+    cur.execute(sql, (cd_assinatura,))
+    conn.commit()
+    return cur.fetchall()
+
 def get_renovacao(conn, renovacao):
     sql = ''' SELECT * FROM renovacao 
                 WHERE cd_renovacao = ?
